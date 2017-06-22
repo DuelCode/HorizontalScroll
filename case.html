@@ -1,0 +1,838 @@
+<!--Copied from : http://www.cn-wbst.cn/, used only for learning -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=680">
+    <title>VTT Cases</title>
+    <link rel="stylesheet" href="css/nav.css">
+
+    <style>
+
+        #container_cases {
+            width: auto;
+            background-color: #000;
+            min-width: 1440px;
+        }
+
+        #container_cases .column {
+            display: inline;
+            float: left;
+            width: auto
+        }
+
+        #container_cases .column .casesPanel {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            overflow: hidden
+        }
+
+        #container_cases .column .casesPanel .delayImage {
+            display: none
+        }
+
+        #container_cases .column .casesPanel .detail {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #fff;
+            opacity: 0
+        }
+
+        #container_cases .column .casesPanel .black {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            opacity: .8;
+            display: none
+        }
+
+        #container_cases .column .casesPanel .imageGroup {
+            display: none
+        }
+
+        #container_cases .column .casesPanel .detail .title {
+            margin-top: 30px;
+            margin-left: 25px;
+            font-size: 14px;
+            color: #aa0d01
+        }
+
+        #container_cases .column .casesPanel .detail .date {
+            margin-top: 3px;
+            margin-left: 25px;
+            font-size: 12px
+        }
+
+        #container_cases .column .casesPanel .detail .intro {
+            margin-top: 10px;
+            margin-left: 25px;
+            margin-right: 25px;
+            line-height: 23px;
+            font-size: 12px;
+            color: #5c5c5c
+        }
+
+        #container_cases .column .casesPanel .detail .fullIntro {
+            display: none
+        }
+
+        #container_cases .column .casesPanel .detail .linkBtn {
+            float: left;
+            margin-top: 35px;
+            margin-left: 25px;
+            width: 90px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #000
+        }
+
+        #container_cases .column .casesPanel .detail .linkBtn:hover {
+            background-color: #aa0d01
+        }
+
+        .casesDetailBase {
+            display: none;
+            z-index: 1;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            max-height: 900px
+        }
+
+        .casesDetail {
+            float: left;
+            height: 100%;
+            position: relative;
+            background-color: #fff;
+            width: 0;
+            overflow: hidden
+        }
+
+        .casesDetail .detailPanel {
+            position: absolute;
+            width: 400px;
+            height: auto;
+            background-color: #fff;
+            z-index: 0
+        }
+
+        .casesDetail .detailPanel .detail .title {
+            margin-top: 30px;
+            margin-left: 25px;
+            font-size: 14px;
+            color: #aa0d01
+        }
+
+        .casesDetail .detailPanel .detail .date {
+            margin-top: 3px;
+            margin-left: 25px;
+            font-size: 12px
+        }
+
+        .casesDetail .detailPanel .detail .intro {
+            display: none
+        }
+
+        .casesDetail .detailPanel .detail .fullIntro {
+            margin-top: 10px;
+            margin-left: 25px;
+            margin-right: 25px;
+            line-height: 23px;
+            font-size: 12px;
+            color: #5c5c5c
+        }
+
+        .casesDetail .detailPanel .detail .linkBtn {
+            display: none
+        }
+
+        .casesDetail .imageContainer {
+            position: relative;
+            top: 50%;
+            margin-top: -220px;
+            margin-left: 100px;
+            margin-right: 450px;
+            display: none;
+            overflow: hidden
+        }
+
+        .casesDetail .imageContainer .imageBase {
+            display: none
+        }
+
+        .casesDetail .imageContainer .image {
+            position: relative;
+            float: left;
+            margin-right: 10px;
+            width: auto;
+            height: 500px;
+            background-color: #818181;
+            background-image: url("images/loading.gif");
+            background-repeat: no-repeat;
+            background-position: 50%;
+            overflow: hidden
+        }
+
+        .casesDetail .imageContainer .image .icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -18px;
+            margin-top: -18px;
+            display: none
+        }
+
+        .casesDetail .imageContainer .image .delayImage {
+            display: none
+        }
+
+        .casesDetail .caseTitle {
+            position: absolute;
+            margin-top: -283px;
+            left: 100px;
+            top: 50%;
+            font-size: 30px
+        }
+
+        .casesDetail .sharePanel {
+            position: absolute;
+            margin-top: -283px;
+            right: 460px;
+            top: 50%
+        }
+
+        .casesDetail .sharePanel .s {
+            float: left;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #fff;
+            background-image: url("../images/share_icon.png");
+            background-repeat: no-repeat
+        }
+
+        .casesDetail .sharePanel .s1 {
+            background-position: 0 0
+        }
+
+        .casesDetail .sharePanel .s1:hover {
+            background-position: 0 -40px;
+            background-color: #aa0d01
+        }
+
+        .casesDetail .sharePanel .s2 {
+            background-position: -40px 0
+        }
+
+        .casesDetail .sharePanel .s2:hover {
+            background-position: -40px -40px;
+            background-color: #aa0d01
+        }
+
+        .casesDetail .sharePanel .s3 {
+            background-position: -80px 0
+        }
+
+        .casesDetail .sharePanel .s3:hover {
+            background-position: -80px -40px;
+            background-color: #aa0d01
+        }
+
+        .casesDetail .sharePanel .s4 {
+            background-position: -120px 0
+        }
+
+        .casesDetail .sharePanel .s4:hover {
+            background-position: -120px -40px;
+            background-color: #aa0d01
+        }
+
+        .casesDetail .sharePanel .close {
+            float: left;
+            width: 100px;
+            height: 40px;
+            background-color: #000;
+            background-image: url("images/cases_back.png");
+            background-repeat: no-repeat;
+            cursor: pointer
+        }
+
+        .casesDetail .sharePanel .close:hover {
+            background-color: #aa0d01
+        }
+
+    </style>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-mousewheel/3.1.3/jquery.mousewheel.min.js"></script>
+    <script src="js/imageOreLoader.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/frame.js"></script>
+    <script>
+        this.ws = this.ws || {};
+        (function () {
+            var Cases = function () {
+                this.init();
+            };
+
+            var p = Cases.prototype;
+            p.navOut = {"color": "#818181"};
+            p.navOver = {"color": "#FFFFFF"};
+            p.canMouse = true;
+
+            p.init = function () {
+                this.$navContainer = $("#navContainer");
+                this.$nav = $("#navContainer>.content>.nav");
+                this.$caseNav = $("#navContainer .content .cases");
+
+                this.$casesContainer = $("#container_cases");
+                this.$casesPanel = $("#container_cases>.column>.casesPanel");
+                this.$detail = $("#container_cases>.column>.casesPanel>.detail");
+                this.$linkBtn = $("#container_cases>.column>.casesPanel>.detail>.linkBtn");
+
+                this.$casesDetailBase = $(".casesDetailBase");
+                this.$imageBase = $(".casesDetailBase>.imageContainer>.imageBase");
+                this.$share = $(".casesDetailBase>.sharePanel>.s");
+                this.$close = $(".casesDetailBase>.sharePanel>.close");
+                this.$close.click(function () {
+                    window.location.hash = "";
+                });
+                this.initCasesPanel();
+                this.initResize();
+                this.initHash();
+            }
+            p.initHash = function () {
+                var cur = this;
+                $(window).bind("hashchange", function (event) {
+                    if (location.hash == undefined || location.hash == "" || location.hash == "#") {
+                        cur.closeDetail();
+                    }
+                    else {
+                        cur.openDetail(location.hash.substring(1));
+                    }
+                });
+                $(window).triggerHandler("hashchange");
+            };
+            p.initCasesPanel = function () {
+                var cur = this;
+                this.$casesPanel.children(".delayImage").imageLoad();
+                this.$casesPanel.mouseenter(function () {
+                    if (cur.canMouse && $(this).children(".black").css("display") == "none") {
+                        TweenLite.to($(this).children(".detail"), 0.3, {top: 0, opacity: 1});
+                    }
+                });
+                this.$casesPanel.mouseleave(function () {
+                    if (cur.canMouse) {
+                        TweenLite.to($(this).children(".detail"), 0.3, {top: "100%", opacity: 0});
+                    }
+                });
+                this.$casesPanel.children(".detail").click(function () {
+                    var caseId = $(this).parent(".casesPanel").attr("caseId");
+                    location.hash = caseId;
+                });
+            };
+            p.openDetail = function (caseId) {
+                var cur = this;
+                //
+                var delayTime = 0;
+                if (this.$casesContainer.children(".casesDetail").length > 0) {
+                    delayTime = 800;
+                }
+                cur.closeDetail();
+                cur.canMouse = false;
+                setTimeout(function () {
+                    cur.$casesPanel.each(function (i) {
+                        if ($(this).attr("caseId") == caseId) {
+                            var $curColumn = $(this).parent(".column");
+                            var $caseDetail = cur.$casesDetailBase.clone(true).removeClass("casesDetailBase").addClass("casesDetail");
+                            $curColumn.before($caseDetail);
+                            //
+                            $caseDetail.children(".caseTitle").html($(this).children(".detail").children(".title").html());
+                            $caseDetail.children(".detailPanel").css({"top": $(this).position().top, "right": "10px"});
+                            $caseDetail.children(".detailPanel").append($(this).children(".detail").clone(false).fadeIn());
+                            TweenLite.to($(this).children(".detail"), 0.3, {top: "100%", opacity: 0});
+
+                            var $item = $(this).children(".imageGroup").children(".item");
+                            var targetW = 0;
+                            $item.each(function (i) {
+                                var $image = cur.$imageBase.clone(true).removeClass("imageBase").addClass("image");
+                                var obj = cur.scaleFun($(this).attr("w"), $(this).attr("h"));
+                                $image.css({"width": obj["w"], "height": obj["h"]});
+                                $caseDetail.children(".imageContainer").append($image);
+                                $image.children("img").attr("final-src", $(this).text());
+                                $image.children("img").imageLoad();
+                                if ($(this).attr("h") > 500) {
+                                    $image.css("cursor", "pointer");
+                                    $image.mouseenter(function () {
+                                        $(this).children(".icon").fadeIn();
+                                    });
+                                    $image.mouseleave(function () {
+                                        $(this).children(".icon").fadeOut();
+                                    });
+                                    $image.click(function () {
+                                        window.open($(this).children("img").attr("src"));
+                                    });
+                                }
+                                targetW += parseInt(obj["w"]) + 10;
+                            });
+                            $caseDetail.children(".imageContainer").css({"width": targetW});
+                            targetW += 550;
+
+                            var targetX = $caseDetail.offset().left;
+                            TweenLite.to($("html,body"), 0.5, {
+                                scrollLeft: targetX, ease: Sine.easeIn, onStart: function () {
+                                    targetX = $caseDetail.offset().left;
+                                }
+                            });
+                            $caseDetail.children(".imageContainer").fadeIn();
+                            cur.canMouse = true;
+                            TweenLite.to($caseDetail, 1.5, {
+                                width: targetW, ease: Sine.easeIn, onComplete: function () {
+                                    $caseDetail.children(".imageContainer").fadeIn();
+                                    cur.canMouse = true;
+                                }
+                            });
+                            TweenLite.to($caseDetail.children(".detailPanel"), 0.5, {
+                                delay: 0,
+                                top: "50%",
+                                marginTop: "-150px"
+                            });
+                        }
+                    });
+                }, delayTime);
+            };
+            p.scaleFun = function (w, h) {
+                var fixS = 8 / 5;
+                var s = w / h;
+                if (s < fixS) {
+                    h = 500;
+                    w = parseInt(500 * s);
+                }
+                var obj = {"w": w, "h": h};
+                return obj
+            }
+            p.closeDetail = function () {
+                var $caseDetail = this.$casesContainer.children(".casesDetail");
+                if ($caseDetail.length > 0) {
+                    TweenLite.to($caseDetail, 0.8, {
+                        width: 0, ease: Sine.easeOut, onComplete: function () {
+                            $caseDetail.remove();
+                        }
+                    });
+                    var targetX = Math.max($caseDetail.position().left - this.$casesPanel.width(), 100);
+                    TweenLite.to($("html,body"), 0.8, {scrollLeft: targetX, ease: Sine.easeOut});
+                }
+            };
+            p.initResize = function () {
+                var cur = this;
+                $(window).resize(function () {
+                    if (cur.$casesPanel) {
+                        cur.resetSize(cur.$casesPanel);
+                    }
+                });
+                $(window).triggerHandler("resize");
+            };
+            p.resetSize = function ($obj) {
+                var h = this.$casesContainer.height() / 3;
+                var w = (this.$casesContainer.height() / 3) * (4 / 3);
+                $obj.width(w);
+                $obj.height(h);
+                $obj.children("img").width(w);
+                $obj.children("img").height(h);
+            };
+
+            ws.Cases = Cases;
+        })();
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            new ws.Frame("cases");
+            new ws.Cases;
+        });
+    </script>
+</head>
+<body>
+<div class="casesDetailBase">
+    <div class="imageContainer">
+        <div class="imageBase">
+            <div class="icon"><img width="37px" height="37px" src="images/zoomIcon.png"></div>
+            <img class="delayImage" final-src="" height="500px" src=""></div>
+    </div>
+    <div class="detailPanel"></div>
+    <div class="caseTitle"></div>
+    <div class="sharePanel">
+        <div class="close btn_tween"></div>
+    </div>
+</div>
+<div id="navContainer">
+    <div class="nav_bg"></div>
+    <div class="logoIcon"></div>
+    <div class="content">
+        <div class="logo">
+            <img style="height: 150px; width: 150px" src="images/Logo.png">
+        </div>
+        <a class="nav navOut1 btn_tween home " href="index.html#_home">Item Title</a>
+        <a class="nav navOut1 btn_tween about" href="index.html#_about">Item Title</a>
+        <a class="nav navOut1 btn_tween service " href="index.html#_service">Item Title</a>
+        <a class="nav navOut1 btn_tween news" href="index.html#_customers">Item Title</a>
+        <a class="nav navOut1 btn_tween recruit" href="index.html#_job">Item Title</a>
+        <a class="nav navOut1 btn_tween contact" href="index.html#_contact">Item Title</a>
+        <a class="nav nav_over btn_tween cases" href="#">Item Title</a>
+        <a class="nav navOut1 btn_tween topic" href="datavisual.html">Item Title</a>
+        <a class="nav navOut1 btn_tween platform" href="knowledge.html">Item Title</a>
+    </div>
+</div>
+<div class="container">
+    <div id="container_cases" class="part">
+        <div class="column">
+            <div class="casesPanel" sortId="5,2" caseId="98">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/ningxiawangan/logo.jpg"
+                     src="images/empty.png"/>
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2016/9/20</div>
+                    <div class="intro contentFont">简介
+                    </div>
+                    <div class="fullIntro contentFont">详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/ningxiawangan/0.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/ningxiawangan/1.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/ningxiawangan/2.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/ningxiawangan/3.jpg
+                    </div>
+                </div>
+            </div>
+            <div class="casesPanel" sortId="1,2,3" caseId="97">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/taikang/back.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2016/7/30</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详情
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/taikang/foucstk.jpg
+                    </div>
+                    <div class='item' w='1600' h='3929'>http://www.cn-wbst.cn/new_wbst/media/upload/taikang/3.jpg</div>
+                    <div class='item' w='1600' h='5634'>http://www.cn-wbst.cn/new_wbst/media/upload/taikang/1.jpg</div>
+                    <div class='item' w='1600' h='7455'>http://www.cn-wbst.cn/new_wbst/media/upload/taikang/2.jpg</div>
+                    <div class='item' w='1600' h='8033'>http://www.cn-wbst.cn/new_wbst/media/upload/taikang/4.jpg</div>
+                </div>
+            </div>
+            <div class="casesPanel" sortId="1,5,2,3" caseId="96">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/JD  618/2016_jd/_.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2016/6/18</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详情
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='891' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/2016_jd/1.jpg
+                    </div>
+                    <div class='item' w='891' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/2016_jd/2.jpg
+                    </div>
+                    <div class='item' w='891' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/2016_jd/3.jpg
+                    </div>
+                    <div class='item' w='890' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/2016_jd/4.jpg
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="casesPanel" sortId="1,5" caseId="95">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/quantong/_.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2016/6/22</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='1778' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/quantong/1.jpg</div>
+                    <div class='item' w='1148' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/quantong/4.jpg</div>
+                    <div class='item' w='1148' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/quantong/6.jpg</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/quantong/show_1.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/quantong/show_2.jpg
+                    </div>
+                </div>
+            </div>
+            <div class="casesPanel" sortId="1,2,3,4" caseId="94">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/libai/_.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2016/6/20</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='300' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/libai/1.jpg</div>
+                    <div class='item' w='300' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/libai/2.jpg</div>
+                    <div class='item' w='300' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/libai/6.jpg</div>
+                    <div class='item' w='300' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/libai/12.jpg</div>
+                    <div class='item' w='300' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/libai/mark.jpg</div>
+                </div>
+            </div>
+            <div class="casesPanel" sortId="1" caseId="92">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/_____.png"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2015/12/23</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/futon/1__.png</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/futon/2__.png</div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="casesPanel" sortId="1" caseId="93">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/pika/_____.png"
+                     tppabs="http://www.cn-wbst.cn/new_wbst/media/upload/pika/_____.png" src="images/empty.png"
+                     tppabs="http://www.cn-wbst.cn/images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2016/01/19</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/pika/1__.png</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/pika/2__.png</div>
+                </div>
+            </div>
+            <div class="casesPanel" sortId="1,5" caseId="91">
+                <img class="delayImage"
+                     final-src="http://www.cn-wbst.cn/new_wbst/media/upload/che lian wang/fengmiantu.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2016/01/10</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='2000' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/che lian
+                        wang/1111.jpg
+                    </div>
+                    <div class='item' w='2000' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/che lian
+                        wang/8888.jpg
+                    </div>
+                    <div class='item' w='2000' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/che lian
+                        wang/3333.jpg
+                    </div>
+                    <div class='item' w='2000' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/che lian
+                        wang/10103.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/che lian
+                        wang/101010.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/che lian
+                        wang/10105.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/che lian
+                        wang/10101.jpg
+                    </div>
+                </div>
+            </div>
+            <div class="casesPanel" sortId="5" caseId="87">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/00.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2015/11/11</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='800' h='500'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/1.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/2.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/3.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/4.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/5.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/6.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/7.jpg
+                    </div>
+                    <div class='item' w='760' h='13440'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/cases/2015/jd1111/___11___.jpg
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="casesPanel" sortId="1" caseId="88">
+                <img class="delayImage" final-src="http://www.cn-wbst.cn/new_wbst/media/upload/APSN/0.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2015/10/28</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/APSN/01.png</div>
+                    <div class='item' w='1440' h='5067'>http://www.cn-wbst.cn/new_wbst/media/upload/APSN/01.
+                        APSN__-1200.jpg
+                    </div>
+                    <div class='item' w='1000' h='2935'>http://www.cn-wbst.cn/new_wbst/media/upload/APSN/002.jpg</div>
+                    <div class='item' w='1436' h='1821'>
+                        http://www.cn-wbst.cn/new_wbst/media/upload/APSN/APSN-MEMBER-ECONOMIES.png
+                    </div>
+                </div>
+            </div>
+            <div class="casesPanel" sortId="1,2" caseId="89">
+                <img class="delayImage"
+                     final-src="http://www.cn-wbst.cn/new_wbst/media/upload/tianhongjijin jiaoyi/0.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2015/10/01</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">
+                        详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/tianhongjijin
+                        jiaoyi/11.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/tianhongjijin
+                        jiaoyi/2.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/tianhongjijin
+                        jiaoyi/3.jpg
+                    </div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/tianhongjijin
+                        jiaoyi/4.jpg
+                    </div>
+                </div>
+            </div>
+            <div class="casesPanel" sortId="1,5,2" caseId="85">
+                <img class="delayImage"
+                     final-src="http://www.cn-wbst.cn/new_wbst/media/upload/JD  618/000000000000000.jpg"
+                     src="images/empty.png"/>
+
+                <div class="detail">
+                    <div class="title">标题</div>
+                    <div class="date enFont">2015-06-18</div>
+                    <div class="intro contentFont">简介</div>
+                    <div class="fullIntro contentFont">详细介绍
+                    </div>
+                    <div class="linkBtn">查看详情</div>
+                </div>
+                <div class="black"></div>
+                <div class="imageGroup">
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/00-2.png</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/01.jpg</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/02.jpg</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/03.jpg</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/05.png</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/06.png</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/07.png</div>
+                    <div class='item' w='800' h='500'>http://www.cn-wbst.cn/new_wbst/media/upload/JD 618/07.png</div>
+                    <div class='item' w='760' h='6720'>http://www.cn-wbst.cn/new_wbst/media/upload/JD
+                        618/HTML5-Mobile-618.png
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="container_jobs" class="part"></div>
+    <div id="container_contactus" class="part"></div>
+</div>
+</body>
+</html>

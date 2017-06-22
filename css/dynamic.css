@@ -1,0 +1,84 @@
+
+.container .part .content {
+    position: relative;
+    margin-top: -290px;
+    top: 50%;
+    height: 580px;
+}
+
+#aboutContainer {
+    width: 1500px;
+    height: 100%;
+    background: #fff url("http://www.cn-wbst.cn/images/about_bg.jpg") no-repeat 0;
+}
+
+.aboutSummary {
+    position: relative;
+    float: left;
+    margin-left: 45px
+}
+
+.aboutSummary .partTitle {
+    margin-bottom: 3px
+}
+
+.aboutSummary .intro, .aboutSummary .partTitle {
+    width: 330px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #fff
+}
+
+.aboutSummary .intro {
+    font-size: 12px;
+    padding-top: 20px;
+    height: 458px;
+    line-height: 23px
+}
+
+#about {
+    position: relative;
+    margin-left: 250px;
+    float: left;
+    top: 94px;
+    width: auto;
+    height: 400px
+}
+
+#about .rec {
+    background-repeat: no-repeat
+}
+
+#about .rec, #about .rec .bottomSub, #about .rec .centerSub, #about .rec .leftSub, #about .rec .rightSub, #about .rec .topSub {
+    position: absolute;
+    width: 190px;
+    height: 190px
+}
+
+#about .rec .centerSub {
+    cursor: pointer
+}
+
+#about .rec1 .centerSub {
+    background: url("../images/dynamic/about_1.jpg") no-repeat;
+}
+
+#about .rec2 .centerSub {
+    background: url("../images/dynamic/about_2.jpg") no-repeat;
+}
+
+#about .rec3 .centerSub {
+    background: url("../images/dynamic/about_3.jpg") no-repeat;
+}
+
+#about .rec4 .centerSub {
+    background: url("../images/dynamic/about_4.jpg") no-repeat;
+}
+
+#about .rec5 .centerSub {
+    background: url("../images/dynamic/about_5.jpg") no-repeat;
+}
+
+#about .rec6 .centerSub {
+    background: url("../images/dynamic/about_6.jpg") no-repeat;
+}

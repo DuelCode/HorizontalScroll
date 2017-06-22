@@ -1,0 +1,80 @@
+#guideContainer {
+    width: 1440px;
+    overflow: hidden;
+    height: 100%;
+    background-color: #000;
+    position: relative
+}
+
+#guideControllers {
+    top: 50%;
+    margin-top: -304px;
+    z-index: 1;
+    list-style: none;
+    position: absolute;
+    right: 65px;
+}
+
+#guideControllers li {
+    width: 12px;
+    height: 12px;
+    float: left;
+    margin: 10px;
+    background: url("../images/guideControllers.png") 0 -13px;
+    cursor: pointer
+}
+
+#guideActor {
+    width: 8640px;
+    height: 100%;
+    list-style: none;
+    position: relative
+}
+
+#guideActor p {
+    text-indent: 0
+}
+
+#guideActor li {
+    width: 1440px;
+    height: 100%;
+    float: left;
+    color: #fff;
+    position: relative
+}
+
+.guide {
+    background: #fff url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498028066013&di=e211fe6ba67ad1af0d299bdee88ee43a&imgtype=0&src=http%3A%2F%2Fimgs1.lockbur.com%2Fgroup1%2FM00%2F09%2FC1%2FeznwC1YktjKAPOypAAVeoRORIO4680.jpg");
+    background-size: cover;
+}
+
+.data {
+    background: #fff url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498057450001&di=76a34c9f6ce068386fe5ca835a8df59e&imgtype=0&src=http%3A%2F%2Fdata.useit.com.cn%2Fuseitdata%2Fforum%2F201702%2F27%2F200817rmrv377vt10u3cnm.jpg");
+    background-size: cover;
+}
+
+.stage {
+    background: #fff url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498057476079&di=a2dc8e4da243acb86e63cdab8cce593c&imgtype=0&src=http%3A%2F%2Ff3.rednet.cn%2Fdata%2Fattachment%2Fforum%2F201601%2F08%2F134233vr83krkcv8vv8f6q.png");
+    background-size: cover;
+}
+
+#wechatContain {
+    background: #1b1b1a url("../images/1.gif") no-repeat 0;
+    background-size: contain;
+}
+
+.net {
+    background: #fff url("../images/2.jpg");
+    background-size: cover;
+}
+
+#arrow {
+    height: 99px;
+    width: 50px;
+    top: 50%;
+    margin-top: -51px;
+    background: url("../images/arrow.png") 0 0;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+}

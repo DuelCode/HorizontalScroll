@@ -1,0 +1,53 @@
+<!--Copied from : http://www.cn-wbst.cn/, used only for learning -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=680">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/nav.css">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-mousewheel/3.1.3/jquery.mousewheel.min.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/frame.js"></script>
+    <script>
+        $(document).ready(function () {
+            new ws.Frame("main");
+        });
+    </script>
+</head>
+<body>
+<div id="navContainer">
+    <div class="nav_bg"></div>
+    <div class="logoIcon"></div>
+    <div class="content">
+        <div class="logo">
+            <img style="height: 150px; width: 150px" src="images/Logo.png">
+        </div>
+        <a class="nav nav_over btn_tween home " href="#_home">Item Title</a>
+        <a class="nav navOut1 btn_tween about" href="#_about">Item Title</a>
+        <a class="nav navOut1 btn_tween service " href="#_service">Item Title</a>
+        <a class="nav navOut1 btn_tween news" href="#_customers">Item Title</a>
+        <a class="nav navOut1 btn_tween recruit" href="#_job">Item Title</a>
+        <a class="nav navOut1 btn_tween contact" href="#_contact">Item Title</a>
+        <a class="nav navOut1 btn_tween cases" href="case.html">Item Title</a>
+        <a class="nav navOut1 btn_tween topic" href="datavisual.html">Item Title</a>
+        <a class="nav navOut1 btn_tween platform" href="knowledge.html">Item Title</a>
+    </div>
+</div>
+<div class="container">
+    <div id="container_guide" class="part"></div>
+    <div id="container_home" class="part"></div>
+    <div id="container_about" class="part"></div>
+    <div id="container_service" class="part"></div>
+    <div id="container_customers" class="part"></div>
+    <div id="container_jobs" class="part"></div>
+    <div id="container_contactus" class="part"></div>
+</div>
+</body>
+</html>

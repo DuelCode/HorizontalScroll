@@ -1,0 +1,148 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: Microsoft yahei, Î¢ÈíÑÅºÚ, Tahoma, Verdana, Arial, "sans-serif";
+    _background-attachment: fixed
+}
+
+body, div, h1, h2, h3, html, li, span, ul {
+    padding: 0;
+    margin: 0
+}
+
+#navContainer {
+    position: fixed;
+    _position: absolute;
+    left: 0;
+    _left: expression(documentElement.scrollLeft - 10 + "px");
+    z-index: 1;
+    width: 0;
+    height: 100%;
+    max-height: 900px;
+}
+
+#navContainer .nav_bg {
+    top: 0;
+    width: 180px;
+    height: 100%;
+    background-color: #000;
+    transform-origin: 0 0;
+    transform: matrix(1, 0, -0.0471, 0.99888, 0, 0);
+    position: absolute;
+    -moz-transition-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -ms-transform-origin: 0 0
+}
+
+.container {
+    clear: both;
+    left: 0;
+    width: 900%
+}
+
+.container, .container .part {
+    position: relative;
+    float: left;
+    height: 100%;
+    max-height: 900px;
+    overflow: hidden
+}
+
+#container_guide {
+    width: 1440px;
+    background: #fff url("../images/guide_bg.jpg");
+    background-size: cover;
+}
+
+#container_home {
+    width: 1402px;
+    background: rgb(241, 241, 240) url("../images/home_bg.png") no-repeat 100%;
+}
+
+#container_about {
+    width: 1500px;
+    background: #fff url("../images/about_bg.jpg") no-repeat 0;
+}
+
+#container_service {
+    width: 1400px;
+    padding-right: 60px;
+    background: #fff url("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=788759941,210069541&fm=26&gp=0.jpg");
+    background-size: cover;
+
+    min-width: 900px;
+}
+
+#container_customers {
+    width: 1440px;
+    background: #fff url("../images/news_bg.jpg") no-repeat 0;
+}
+
+#container_jobs {
+    width: 1400px;
+    max-height: 900px;
+    background: #fff url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498034715651&di=f3dd6d0588a7e35ae8843fc97b84dae5&imgtype=0&src=http%3A%2F%2Fwww.cbdio.com%2Fimage%2Fattachement%2Fgif%2Fsite2%2F20151224%2F3417eb9bbd9017e5efdc14.gif");
+    background-size: cover;
+}
+
+#container_contactus {
+    width: 1400px;
+    max-height: 900px;
+    background: #fff url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498028066013&di=e211fe6ba67ad1af0d299bdee88ee43a&imgtype=0&src=http%3A%2F%2Fimgs1.lockbur.com%2Fgroup1%2FM00%2F09%2FC1%2FeznwC1YktjKAPOypAAVeoRORIO4680.jpg");
+    background-size: cover;
+}
+
+#navContainer .content {
+    position: relative;
+    top: 50%;
+    margin-top: -270px;
+    font-size: 12px;
+    color: #fff;
+}
+
+#navContainer .content .logo {
+    position: relative;
+    margin-bottom: 60px;
+    left: -170px;
+    width: 150px;
+    height: 150px;
+}
+
+#navContainer .content .nav {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    padding-left: 30px;
+    left: -200px;
+    width: 110px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#navContainer .content .nav:hover, .nav_over {
+    color: #c01002;
+    background-color: #fff
+}
+
+#navContainer .content .navOut1 {
+    color: #fff
+}
+
+.btn_tween {
+    -webkit-transition: background-color .5s ease-out, color .5s ease-out;
+    transition: background-color .5s ease-out, color .5s ease-out
+}
+
+#navContainer .logoIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+    background: url("../images/logoIcon.png") no-repeat 15px 15px;
+}

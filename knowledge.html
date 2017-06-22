@@ -1,0 +1,74 @@
+<!--Copied from : http://www.cn-wbst.cn/, used only for learning -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="height=680">
+    <title>VTT Cases</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/knowledge.css">
+    <link rel="stylesheet" href="css/dynamic.css">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-mousewheel/3.1.3/jquery.mousewheel.min.js"></script>
+
+    <script src="js/imageOreLoader.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/frame.js"></script>
+    <script src="js/banner.js"></script>
+    <script src="js/dynamic.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            new ws.Frame("knowledge");
+            new ws.Banner($("#guideContainer"));
+            new ws.DynamicBlocks($("#about"));
+        });
+    </script>
+</head>
+<body>
+<div id="navContainer">
+    <div class="nav_bg"></div>
+    <div class="logoIcon"></div>
+    <div class="content">
+        <div class="logo">
+            <img style="height: 150px; width: 150px" src="images/Logo.png">
+        </div>
+        <a class="nav navOut1 btn_tween home " href="index.html#_home">Item Title</a>
+        <a class="nav navOut1 btn_tween about" href="index.html#_about">Item Title</a>
+        <a class="nav navOut1 btn_tween service " href="index.html#_service">Item Title</a>
+        <a class="nav navOut1 btn_tween news" href="index.html#_customers">Item Title</a>
+        <a class="nav navOut1 btn_tween recruit" href="index.html#_job">Item Title</a>
+        <a class="nav navOut1 btn_tween contact" href="index.html#_contact">Item Title</a>
+        <a class="nav navOut1 btn_tween cases" href="case.html">Item Title</a>
+        <a class="nav navOut1 btn_tween topic" href="datavisual.html">Item Title</a>
+        <a class="nav nav_over btn_tween platform" href="#">Item Title</a>
+    </div>
+</div>
+<div class="container">
+    <div id="guideContainer" class="part">
+        <ul id="guideControllers">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul id="guideActor">
+            <li class="guide"></li>
+            <li class="data"></li>
+            <li class="stage"></li>
+            <li id="wechatContain"></li>
+            <li class="net"></li>
+        </ul>
+        <div id="arrow"></div>
+    </div>
+    <div id="container_jobs" class="part"></div>
+    <div id="container_contactus" class="part"></div>
+</div>
+</body>
+</html>
